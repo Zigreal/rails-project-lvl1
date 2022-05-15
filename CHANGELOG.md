@@ -2,4 +2,4 @@
 
 ## [0.1.0] - 2022-05-15
 
-- Initial release
+- Tag generator was added!
