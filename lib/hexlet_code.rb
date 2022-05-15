@@ -4,6 +4,7 @@ require_relative "hexlet_code/version"
 
 module HexletCode
   class Error < StandardError; end
+
   # Генерирует html-тэги
   class Tag
     SINGLE_TAGS =
