@@ -2,7 +2,20 @@
 
 require_relative "hexlet_code/version"
 
+# Генерирует пустую форму
 module HexletCode
+  class << self
+    def form_for(_object, url: nil)
+      "<form#{build_action(url)} method=\"post\"></form>"
+    end
+
+    private
+
+    def build_action(url)
+      " action=\"#{url || "#"}\""
+    end
+  end
+
   class Error < StandardError; end
 
   # Генерирует html-тэги
@@ -24,7 +37,7 @@ module HexletCode
 
       def build_attributes(attributes)
         attributes.each_with_object([]) do |(k, v), result|
-          result << " #{k}='#{v}'"
+          result << " #{k}=\"#{v}\""
         end.join
       end
     end
