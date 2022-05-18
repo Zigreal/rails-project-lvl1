@@ -39,7 +39,6 @@ module HexletCode
 
   # Генерирует html-тэги
   class Tag
-    autoload :ERB, "erb"
     SINGLE_TAGS =
       %w[!doctype area base br col embed hr img input
          keygen link meta param source track wbr].freeze
@@ -57,7 +56,7 @@ module HexletCode
 
       def build_attributes(attributes)
         attributes.each_with_object([]) do |(k, v), result|
-          result << ERB::Util.h(" #{k}=\"#{v}\"")
+          result << " #{k}=\"#{v}\""
         end.join
       end
     end
