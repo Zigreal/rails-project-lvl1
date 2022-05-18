@@ -37,8 +37,6 @@ def check_submit(user)
 end
 
 class TestHexletCode < Minitest::Test
-  autoload :HexletCode, "hexlet_code"
-
   User = Struct.new(:name, :job, :gender, keyword_init: true)
 
   def test_it_has_a_version_number
