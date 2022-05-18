@@ -4,7 +4,7 @@
 module HexletCode
   class << self
     def form_for(object, url: nil)
-      "<form action=\"#{url || "#"}\" method=\"post\">#{yield(FormBuilder.new(object)) if block_given?}</form>"
+      "<form action=\"#{url || '#'}\" method=\"post\">#{yield(FormBuilder.new(object)) if block_given?}</form>"
     end
   end
 
@@ -19,26 +19,26 @@ module HexletCode
 
     def input(attr_name, **options)
       output.tap do |output|
-        output << HexletCode::Tag.build("label", for: attr_name) { attr_name.capitalize }
+        output << HexletCode::Tag.build('label', for: attr_name) { attr_name.capitalize }
         output << build_input_or_textarea(attr_name, options)
       end.join
     end
 
-    def submit(button_text = "Save")
+    def submit(button_text = 'Save')
       output.tap do |output|
-        output << Tag.build("input", name: "commit", type: "submit", value: button_text)
+        output << Tag.build('input', name: 'commit', type: 'submit', value: button_text)
       end.join
     end
 
     private
 
     def build_input_or_textarea(attr_name, options)
-      if options.delete(:as).to_s == "text"
-        Tag.build("textarea", cols: options[:cols] || 20, rows: options[:rows] || 40, name: attr_name) do
+      if options.delete(:as).to_s == 'text'
+        Tag.build('textarea', cols: options[:cols] || 20, rows: options[:rows] || 40, name: attr_name) do
           object.public_send(attr_name)
         end
       else
-        Tag.build("input", name: attr_name, type: "text", value: object.public_send(attr_name), **options)
+        Tag.build('input', name: attr_name, type: 'text', value: object.public_send(attr_name), **options)
       end
     end
   end
