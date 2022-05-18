@@ -20,11 +20,7 @@ module HexletCode
     def input(attr_name, **options)
       output.tap do |output|
         output << HexletCode::Tag.build("label", for: attr_name) { attr_name.capitalize }
-        output << if options.delete(:as).to_s == "text"
-                    Tag.build("textarea", cols: 20, rows: 40, name: attr_name) { object.public_send(attr_name) }
-                  else
-                    Tag.build("input", name: attr_name, type: "text", value: object.public_send(attr_name), **options)
-                  end
+        output << build_input_or_textarea(attr_name, options)
       end.join
     end
 
@@ -32,6 +28,18 @@ module HexletCode
       output.tap do |output|
         output << Tag.build("input", name: "commit", type: "submit", value: button_text)
       end.join
+    end
+
+    private
+
+    def build_input_or_textarea(attr_name, options)
+      if options.delete(:as).to_s == "text"
+        Tag.build("textarea", cols: options[:cols] || 20, rows: options[:rows] || 40, name: attr_name) do
+          object.public_send(attr_name)
+        end
+      else
+        Tag.build("input", name: attr_name, type: "text", value: object.public_send(attr_name), **options)
+      end
     end
   end
 

@@ -5,12 +5,12 @@ require_relative "test_helper"
 def check_input_with_as_option(user)
   (HexletCode.form_for(user, url: "/users") do |f|
     f.input :name
-    f.input :job, as: :text
+    f.input :job, as: :text, cols: 30
   end) == "<form action=\"/users\" method=\"post\">" \
           "<label for=\"name\">Name</label>" \
           "<input name=\"name\" type=\"text\" value=\"Zigreal\">" \
           "<label for=\"job\">Job</label>" \
-          "<textarea cols=\"20\" rows=\"40\" name=\"job\">Elins</textarea>" \
+          "<textarea cols=\"30\" rows=\"40\" name=\"job\">Elins</textarea>" \
           "</form>"
 end
 
