@@ -28,9 +28,9 @@ module HexletCode
       end.join
     end
 
-    def submit
+    def submit(button_text = "Save")
       output.tap do |output|
-        output << Tag.build("input", name: "commit", type: "submit", value: "Save")
+        output << Tag.build("input", name: "commit", type: "submit", value: button_text)
       end.join
     end
   end

@@ -36,6 +36,14 @@ def check_submit(user)
           "</form>"
 end
 
+def check_submit_with_custom_label(user)
+  (HexletCode.form_for user, url: "/users" do |f|
+    f.submit "Wow"
+  end) == "<form action=\"/users\" method=\"post\">" \
+          "<input name=&quot;commit&quot; type=&quot;submit&quot; value=&quot;Wow&quot;>" \
+          "</form>"
+end
+
 class TestHexletCode < Minitest::Test
   User = Struct.new(:name, :job, :gender, keyword_init: true)
 
@@ -60,5 +68,6 @@ class TestHexletCode < Minitest::Test
     assert { check_input_with_as_option(user) }
     assert { check_missing_input(user) }
     assert { check_submit(user) }
+    assert { check_submit_with_custom_label(user) }
   end
 end
