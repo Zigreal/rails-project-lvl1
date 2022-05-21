@@ -1,6 +1,6 @@
-install: # install dependencies
+install:
 	bundle install
-lint: # run rubocop checking
+lint:
 	rubocop
-run-tests: # run test
-	ruby test/test_hexlet_code.rb
+tests:
+	rake test
