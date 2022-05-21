@@ -43,8 +43,6 @@ module HexletCode
     end
   end
 
-  class Error < StandardError; end
-
   # Генерирует html-тэги
   class Tag
     SINGLE_TAGS =
