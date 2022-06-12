@@ -2,9 +2,7 @@
 ![hexlet-check Status](https://github.com/Zigreal/rails-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg?branch=main)
 ![CI Status](https://github.com/Zigreal/rails-project-lvl1/actions/workflows/ci.yml/badge.svg?branch=main)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hexlet_code`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The form generator allows you to generate forms - it is a simplified conceptual copy of SimpleForm
 
 ## Installation
 

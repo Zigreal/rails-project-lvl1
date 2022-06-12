@@ -8,13 +8,12 @@ Gem::Specification.new do |spec|
   spec.authors = ['Zigreal']
   spec.email = ['grigoriy.nov1998@gmail.com']
 
-  spec.summary = 'Form generator'
-  spec.description = 'Gem for generating forms'
+  spec.summary = 'Gem for generate forms'
+  spec.description =
+    'The Form Generator allows you to generate forms - it is a simplified conceptual copy of SimpleForm'
   spec.homepage = 'https://github.com/Zigreal/rails-project-lvl1'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 2.6.0'
-
-  spec.metadata['allowed_push_host'] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/Zigreal/rails-project-lvl1'
