@@ -19,6 +19,6 @@ jobs:
       - name: Run Dependencies
         run: make install
       - name: Run Tests
-        run: make run-tests
+        run: make tests
       - name: Run Rubocop
         run: make lint
