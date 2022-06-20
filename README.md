@@ -15,8 +15,24 @@ If bundler is not being used to manage dependencies, install the gem by executin
     $ gem install hexlet_code
 
 ## Usage
+```rb
+User = Struct.new(:name, :job, keyword_init: true)
+user = User.new name: 'Hexlet', job: 'hexlet'
 
-TODO: Write usage instructions here
+HexletCode.form_for(user, url: '/users') do |f|
+  f.input :name
+  f.input :job, as: :text, cols: 30
+  f.submit 'Mega save'
+end
+
+# <form action="/users" method="post">
+#   <label for="name">Name</label>
+#   <input type="text" name="name" value="Hexlet">
+#   <label for="job">Job</label>
+#   <textarea cols="30" rows="40" name="job">hexlet</textarea>
+#   <input type="submit" name="commit" value="Mega save">
+# </form>
+```
 
 ## Development
 

@@ -8,7 +8,7 @@ def check_input_with_as_option(user)
     f.input :job, as: :text, cols: 30
   end) == '<form action="/users" method="post">' \
           '<label for="name">Name</label>' \
-          '<input name="name" type="text" value="Zigreal">' \
+          '<input type="text" name="name" value="Zigreal">' \
           '<label for="job">Job</label>' \
           '<textarea cols="30" rows="40" name="job">Elins</textarea>' \
           '</form>'
@@ -31,8 +31,8 @@ def check_submit(user)
     f.submit
   end) == '<form action="/users" method="post">' \
           '<label for="name">Name</label>' \
-          '<input name="name" type="text" value="Zigreal">' \
-          '<input name="commit" type="submit" value="Save">' \
+          '<input type="text" name="name" value="Zigreal">' \
+          '<input type="submit" name="commit" value="Save">' \
           '</form>'
 end
 
@@ -40,7 +40,7 @@ def check_submit_with_custom_label(user)
   (HexletCode.form_for user, url: '/users' do |f|
     f.submit 'Wow'
   end) == '<form action="/users" method="post">' \
-          '<input name="commit" type="submit" value="Wow">' \
+          '<input type="submit" name="commit" value="Wow">' \
           '</form>'
 end
 
